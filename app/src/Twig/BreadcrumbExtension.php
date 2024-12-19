@@ -19,14 +19,9 @@ use UserFrosting\Sprinkle\Breadcrumb\Breadcrumb\Manager;
  */
 class BreadcrumbExtension extends AbstractExtension implements GlobalsInterface
 {
-    /**
-     * @var Manager
-     */
-    protected $breadcrumb;
-
-    public function __construct(Manager $breadcrumb)
-    {
-        $this->breadcrumb = $breadcrumb;
+    public function __construct(
+        protected Manager $breadcrumb
+    ) {
     }
 
     /**
@@ -40,7 +35,7 @@ class BreadcrumbExtension extends AbstractExtension implements GlobalsInterface
     /**
      * @return array<string,mixed>
      */
-    public function getGlobals()
+    public function getGlobals(): array
     {
         return [
             'breadcrumbs' => $this->breadcrumb->generate(),

@@ -2,6 +2,7 @@
 
 namespace UserFrosting\Sprinkle\Breadcrumb;
 
+use UserFrosting\Sprinkle\Breadcrumb\Twig\BreadcrumbExtension;
 use UserFrosting\Sprinkle\Core\Sprinkle\Recipe\TwigExtensionRecipe;
 use UserFrosting\Sprinkle\SprinkleRecipe;
 
@@ -34,6 +35,8 @@ class Breadcrumb implements SprinkleRecipe, TwigExtensionRecipe
 
     public function getTwigExtensions(): array
     {
-        return [];
+        return [
+            BreadcrumbExtension::class,
+        ];
     }
 }
