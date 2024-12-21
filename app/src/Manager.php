@@ -8,12 +8,11 @@
  * @license   https://github.com/lcharette/UF_Breadcrumb/blob/master/LICENSE (MIT License)
  */
 
-namespace UserFrosting\Sprinkle\Breadcrumb\Breadcrumb;
+namespace UserFrosting\Sprinkle\Breadcrumb;
 
 use InvalidArgumentException;
 use UserFrosting\I18n\MessageTranslator;
 use UserFrosting\I18n\Translator;
-use UserFrosting\Sprinkle\Core\Router;
 use UserFrosting\Support\Repository\Repository as Config;
 
 /**
@@ -26,38 +25,10 @@ class Manager
      */
     protected $crumbs = [];
 
-    /**
-     * @var Config
-     */
-    protected $config;
-
-    /**
-     * @var Translator|MessageTranslator
-     */
-    protected $translator;
-
-    /**
-     * @var Router
-     */
-    protected $router;
-
-    /**
-     * Create a new Manager object.
-     *
-     * @param Config                       $config
-     * @param Translator|MessageTranslator $translator
-     * @param Router                       $router
-     */
-    public function __construct(Config $config, $translator, Router $router)
-    {
-        // Support for older version of Translator
-        if (!$translator instanceof Translator && !$translator instanceof MessageTranslator) {
-            throw new InvalidArgumentException('Translator must be an instance of Translator.');
-        }
-
-        $this->config = $config;
-        $this->translator = $translator;
-        $this->router = $router;
+    public function __construct(
+        protected Config $config, 
+        protected Translator $translator, 
+    ) {
     }
 
     /**
@@ -204,7 +175,8 @@ class Manager
         $route = $crumb->getRoute();
         if (!is_string($route)) {
             list($name, $data) = $route;
-            $route = $this->router->pathFor($name, $data);
+            //$route = $this->router->pathFor($name, $data);
+            $route = "who knows?";
         }
 
         return [

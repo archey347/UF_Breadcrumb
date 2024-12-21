@@ -10,13 +10,13 @@
 
 namespace UserFrosting\Sprinkle\Breadcrumb\Tests\Unit;
 
-use UserFrosting\Sprinkle\Breadcrumb\Breadcrumb\Crumb;
+use UserFrosting\Sprinkle\Breadcrumb\Crumb;
 use UserFrosting\Tests\TestCase;
 
 /**
  * CrumbTest
  *
- * Perform test for UserFrosting\Sprinkle\Breadcrumb\Breadcrumb\Crumb
+ * Perform test for UserFrosting\Sprinkle\Breadcrumb\Crumb
  */
 class CrumbTest extends TestCase
 {

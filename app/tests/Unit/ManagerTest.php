@@ -13,8 +13,8 @@ namespace UserFrosting\Sprinkle\Breadcrumb\Tests\Unit;
 use InvalidArgumentException;
 use Mockery as m;
 use UserFrosting\I18n\Translator;
-use UserFrosting\Sprinkle\Breadcrumb\Breadcrumb\Crumb;
-use UserFrosting\Sprinkle\Breadcrumb\Breadcrumb\Manager;
+use UserFrosting\Sprinkle\Breadcrumb\Crumb;
+use UserFrosting\Sprinkle\Breadcrumb\Manager;
 use UserFrosting\Sprinkle\Core\Router;
 use UserFrosting\Support\Repository\Repository;
 use UserFrosting\Tests\TestCase;
@@ -22,7 +22,7 @@ use UserFrosting\Tests\TestCase;
 /**
  * ManagerTest
  *
- * Perform test for UserFrosting\Sprinkle\Breadcrumb\Breadcrumb\Manager
+ * Perform test for UserFrosting\Sprinkle\Breadcrumb\Manager
  */
 class ManagerTest extends TestCase
 {

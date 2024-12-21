@@ -8,7 +8,7 @@
  * @license   https://github.com/lcharette/UF_Breadcrumb/blob/master/LICENSE (MIT License)
  */
 
-namespace UserFrosting\Sprinkle\Breadcrumb\Breadcrumb;
+namespace UserFrosting\Sprinkle\Breadcrumb;
 
 /**
  * Representation of a breadcrumb element.

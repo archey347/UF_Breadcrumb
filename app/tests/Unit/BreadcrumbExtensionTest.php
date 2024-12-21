@@ -11,7 +11,7 @@
 namespace UserFrosting\Sprinkle\Breadcrumb\Tests\Unit;
 
 use Mockery as m;
-use UserFrosting\Sprinkle\Breadcrumb\Breadcrumb\Manager;
+use UserFrosting\Sprinkle\Breadcrumb\Manager;
 use UserFrosting\Sprinkle\Breadcrumb\Twig\BreadcrumbExtension;
 use UserFrosting\Tests\TestCase;
 

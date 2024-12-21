@@ -5,6 +5,10 @@ namespace UserFrosting\Sprinkle\Breadcrumb;
 use UserFrosting\Sprinkle\Breadcrumb\Twig\BreadcrumbExtension;
 use UserFrosting\Sprinkle\Core\Sprinkle\Recipe\TwigExtensionRecipe;
 use UserFrosting\Sprinkle\SprinkleRecipe;
+use UserFrosting\Sprinkle\Account\Account;
+use UserFrosting\Sprinkle\Admin\Admin;
+use UserFrosting\Sprinkle\Core\Core;
+use UserFrosting\Theme\AdminLTE\AdminLTE;
 
 class Breadcrumb implements SprinkleRecipe, TwigExtensionRecipe
 {
@@ -20,7 +24,12 @@ class Breadcrumb implements SprinkleRecipe, TwigExtensionRecipe
 
     public function getSprinkles(): array
     {
-        return [];
+        return [
+            Core::class,
+            Account::class,
+            Admin::class,
+            AdminLTE::class,
+        ];
     }
 
     public function getRoutes(): array
