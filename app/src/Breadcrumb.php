@@ -26,8 +26,6 @@ class Breadcrumb implements SprinkleRecipe, TwigExtensionRecipe
     {
         return [
             Core::class,
-            Account::class,
-            Admin::class,
             AdminLTE::class,
         ];
     }
