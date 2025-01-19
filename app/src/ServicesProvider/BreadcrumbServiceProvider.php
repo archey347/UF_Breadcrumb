@@ -14,8 +14,8 @@ use UserFrosting\Sprinkle\Core\Router;
 use UserFrosting\Config\Config;
 use UserFrosting\I18n\Translator;
 use Psr\Container\ContainerInterface;
-use UserFrosting\Sprinkle\Breadcrumb\Manager;
-use UserFrosting\Sprinkle\Breadcrumb\Twig\BreadcrumbExtension;
+use UserFrosting\ServicesProvider\ServicesProviderInterface;
+use UserFrosting\Sprinkle\Breadcrumb\BreadcrumbManager;
 
 /**
  * Registers services for the Breadcrumb sprinkle.
@@ -30,8 +30,8 @@ class BreadcrumbServiceProvider implements ServicesProviderInterface
     public function register(): array 
     {
         return [
-            Manager::Class => function (Config $config, Translator $translator, Router $router) {
-                return new Manager($config, $translator, $router);
+            BreadcrumbManager::class => function (Config $config, Translator $translator, Router $router) {
+                return new BreadcrumbManager($config, $translator, $router);
             }
         ];
     }

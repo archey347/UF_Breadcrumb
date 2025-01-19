@@ -12,7 +12,8 @@ namespace UserFrosting\Sprinkle\Breadcrumb\Twig;
 
 use Twig\Extension\AbstractExtension;
 use Twig\Extension\GlobalsInterface;
-use UserFrosting\Sprinkle\Breadcrumb\Manager;
+use UserFrosting\Sprinkle\Breadcrumb\Breadcrumb;
+use UserFrosting\Sprinkle\Breadcrumb\BreadcrumbManager;
 
 /**
  * Extends Twig functionality for the Breadcrumb sprinkle.
@@ -20,7 +21,7 @@ use UserFrosting\Sprinkle\Breadcrumb\Manager;
 class BreadcrumbExtension extends AbstractExtension implements GlobalsInterface
 {
     public function __construct(
-        protected Manager $breadcrumb
+        protected BreadcrumbManager $breadcrumb
     ) {
     }
 

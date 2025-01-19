@@ -11,14 +11,14 @@
 namespace UserFrosting\Sprinkle\Breadcrumb;
 
 use InvalidArgumentException;
+use UserFrosting\Config\Config;
 use UserFrosting\I18n\MessageTranslator;
 use UserFrosting\I18n\Translator;
-use UserFrosting\Support\Repository\Repository as Config;
 
 /**
  * The Breadcrumbs class, which manage the breadcrumbs in the Application.
  */
-class Manager
+class BreadcrumbManager
 {
     /**
      * @var array<Crumb> An array of crumb in the breadcrumbs list.
@@ -164,7 +164,7 @@ class Manager
     }
 
     /**
-     * Conver crumb to array.
+     * Convert crumb to array.
      *
      * @param Crumb $crumb
      *
