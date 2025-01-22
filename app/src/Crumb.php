@@ -110,7 +110,7 @@ class Crumb
     /**
      * Get the uri.
      *
-     * @return string|array<string,array>
+     * @return string|array<mixed>
      */
     public function getRoute()
     {
