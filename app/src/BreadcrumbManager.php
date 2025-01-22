@@ -12,8 +12,8 @@ namespace UserFrosting\Sprinkle\Breadcrumb;
 
 use InvalidArgumentException;
 use UserFrosting\Config\Config;
-use UserFrosting\I18n\MessageTranslator;
 use UserFrosting\I18n\Translator;
+use UserFrosting\Sprinkle\Core\Util\RouteParserInterface;
 
 /**
  * The Breadcrumbs class, which manage the breadcrumbs in the Application.
@@ -28,6 +28,7 @@ class BreadcrumbManager
     public function __construct(
         protected Config $config, 
         protected Translator $translator, 
+        protected RouteParserInterface $routeParser,
     ) {
     }
 
@@ -175,8 +176,8 @@ class BreadcrumbManager
         $route = $crumb->getRoute();
         if (!is_string($route)) {
             list($name, $data) = $route;
-            //$route = $this->router->pathFor($name, $data);
-            $route = "who knows?";
+
+            $route = $this->routeParser->urlFor($name, $data);
         }
 
         return [
