@@ -10,61 +10,67 @@
 
 namespace UserFrosting\Sprinkle\Breadcrumb\Tests\Integration;
 
+use DI\Container;
+use Slim\Views\Twig;
+use UserFrosting\Config\Config;
+use UserFrosting\Sprinkle\Breadcrumb\BreadcrumbManager;
 use UserFrosting\Sprinkle\Breadcrumb\Manager;
-use UserFrosting\Sprinkle\Core\Tests\withController;
-use UserFrosting\Tests\TestCase;
-use UserFrosting\UniformResourceLocator\ResourceLocator;
+use UserFrosting\Sprinkle\Breadcrumb\Tests\BreadcrumbTestCase;
+use UserFrosting\UniformResourceLocator\ResourceLocation;
+use UserFrosting\UniformResourceLocator\ResourceLocatorInterface;
+use UserFrosting\UniformResourceLocator\ResourceStream;
+
+const RESULT_DIR = __DIR__ . "/results";
 
 /**
  * Perform functional test with a stub controller.
  */
-class BreadcrumbTest extends TestCase
+class BreadcrumbTest extends BreadcrumbTestCase
 {
-    use withController;
+    protected Container $container;
 
     public function setUp(): void
     {
         parent::setUp();
 
-        /** @var ResourceLocator */
-        $locator = $this->ci->locator;
+        $locator = $this->ci->get(ResourceLocatorInterface::class);
 
         // Register test location for test templates
-        $locator->registerLocation('test', __DIR__);
+        $locator->addLocation(new ResourceLocation('test', __DIR__));
 
-        // Register a temp stream for asertion results
-        $locator->registerSharedStream('results', '', __DIR__ . '/results');
+        $config = $this->ci->get(Config::class);
 
-        // Force site title
-        $this->ci->config['site.title'] = 'FOOBAR SITE';
+        $config['site.title'] = 'FOOBAR SITE';
     }
 
     public function testBreadcrumbsSimple(): void
     {
-        $result = $this->ci->view->fetch('breadcrumbs.html.twig');
-        $this->assertXmlStringEqualsXmlFile('results://simple.txt', $result);
+        $view = $this->ci->get(Twig::class);
+
+        $result = $view->fetch('breadcrumbs.html.twig');
+        $this->assertXmlStringEqualsXmlFile(RESULT_DIR . '/simple.txt', $result);
     }
 
     public function testBreadcrumbsCustom(): void
     {
-        /** @var Manager */
-        $breadcrumb = $this->ci->breadcrumb;
+        $breadcrumb = $this->ci->get(BreadcrumbManager::class);
         $breadcrumb->add('Foo');
 
-        $result = $this->ci->view->fetch('breadcrumbs.html.twig');
-        $this->assertXmlStringEqualsXmlFile('results://custom.txt', $result);
+        $view = $this->ci->get(Twig::class);
+        $result = $view->fetch('breadcrumbs.html.twig');
+        $this->assertXmlStringEqualsXmlFile(RESULT_DIR . '/custom.txt', $result);
     }
 
     public function testBreadcrumbsMultiple(): void
     {
-        /** @var Manager */
-        $breadcrumb = $this->ci->breadcrumb;
+        $breadcrumb = $this->ci->get(BreadcrumbManager::class);
         $breadcrumb->add('Bar', '/Bar')
                    ->add('Foo')
                    ->add('Blah', '/blah')
                    ->add('Foo Bar');
 
-        $result = $this->ci->view->fetch('breadcrumbs.html.twig');
-        $this->assertXmlStringEqualsXmlFile('results://multiple.txt', $result);
+        $view = $this->ci->get(Twig::class);
+        $result = $view->fetch('breadcrumbs.html.twig');
+        $this->assertXmlStringEqualsXmlFile(RESULT_DIR . '/multiple.txt', $result);
     }
 }

@@ -11,14 +11,14 @@
 namespace UserFrosting\Sprinkle\Breadcrumb\Tests\Unit;
 
 use UserFrosting\Sprinkle\Breadcrumb\Crumb;
-use UserFrosting\Tests\TestCase;
+use UserFrosting\Sprinkle\Breadcrumb\Tests\BreadcrumbTestCase;
 
 /**
  * CrumbTest
  *
  * Perform test for UserFrosting\Sprinkle\Breadcrumb\Crumb
  */
-class CrumbTest extends TestCase
+class CrumbTest extends BreadcrumbTestCase
 {
     public function testConstructor(): void
     {
