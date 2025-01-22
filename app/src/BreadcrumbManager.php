@@ -26,8 +26,8 @@ class BreadcrumbManager
     protected $crumbs = [];
 
     public function __construct(
-        protected Config $config, 
-        protected Translator $translator, 
+        protected Config $config,
+        protected Translator $translator,
         protected RouteParserInterface $routeParser,
     ) {
     }

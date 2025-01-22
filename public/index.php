@@ -1,11 +1,11 @@
 <?php
 
 /*
- * UserFrosting (http://www.userfrosting.com)
+ * UserFrosting Breadcrumb Sprinkle
  *
- * @link      https://github.com/userfrosting/UserFrosting
- * @copyright Copyright (c) 2013-2024 Alexander Weissman & Louis Charette
- * @license   https://github.com/userfrosting/UserFrosting/blob/master/LICENSE.md (MIT License)
+ * @link      https://github.com/lcharette/UF_Breadcrumb
+ * @copyright Copyright (c) 2020 Louis Charette
+ * @license   https://github.com/lcharette/UF_Breadcrumb/blob/master/LICENSE (MIT License)
  */
 
 /**

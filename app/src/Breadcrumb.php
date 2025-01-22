@@ -1,13 +1,19 @@
 <?php
 
+/*
+ * UserFrosting Breadcrumb Sprinkle
+ *
+ * @link      https://github.com/lcharette/UF_Breadcrumb
+ * @copyright Copyright (c) 2020 Louis Charette
+ * @license   https://github.com/lcharette/UF_Breadcrumb/blob/master/LICENSE (MIT License)
+ */
+
 namespace UserFrosting\Sprinkle\Breadcrumb;
 
 use UserFrosting\Sprinkle\Breadcrumb\Twig\BreadcrumbExtension;
+use UserFrosting\Sprinkle\Core\Core;
 use UserFrosting\Sprinkle\Core\Sprinkle\Recipe\TwigExtensionRecipe;
 use UserFrosting\Sprinkle\SprinkleRecipe;
-use UserFrosting\Sprinkle\Account\Account;
-use UserFrosting\Sprinkle\Admin\Admin;
-use UserFrosting\Sprinkle\Core\Core;
 use UserFrosting\Theme\AdminLTE\AdminLTE;
 
 class Breadcrumb implements SprinkleRecipe, TwigExtensionRecipe

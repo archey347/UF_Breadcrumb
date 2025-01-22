@@ -10,12 +10,12 @@
 
 namespace UserFrosting\Sprinkle\Breadcrumb\ServicesProvider;
 
-use UserFrosting\Sprinkle\Core\Router;
+use Psr\Container\ContainerInterface;
 use UserFrosting\Config\Config;
 use UserFrosting\I18n\Translator;
-use Psr\Container\ContainerInterface;
 use UserFrosting\ServicesProvider\ServicesProviderInterface;
 use UserFrosting\Sprinkle\Breadcrumb\BreadcrumbManager;
+use UserFrosting\Sprinkle\Core\Router;
 
 /**
  * Registers services for the Breadcrumb sprinkle.
@@ -27,12 +27,12 @@ class BreadcrumbServiceProvider implements ServicesProviderInterface
      *
      * @param ContainerInterface $container A DI container implementing ArrayAccess and container-interop.
      */
-    public function register(): array 
+    public function register(): array
     {
         return [
             BreadcrumbManager::class => function (Config $config, Translator $translator, Router $router) {
                 return new BreadcrumbManager($config, $translator, $router);
-            }
+            },
         ];
     }
 }
